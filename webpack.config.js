@@ -17,15 +17,18 @@ module.exports = () => {
     }, {});
 
     return {
-        entry: ['./src/front/index.js', `webpack-hot-middleware/client?path=${host_name}/__webpack_hmr&reload=true'`],
+        mode: "development", //En que ambiente estamos ???
+        entry: './src/frontend/index.js',
         context: path.resolve(__dirname),
         output: {
             path: path.resolve(__dirname, 'dist'),
             filename: 'assets/app.js'
-        },
+        },/*
         node: {
-            fs: "empty"
-        },
+            fs: 'empty',
+            module: 'empty',
+            net: 'empty'
+        }, */
         module: {
             rules: [
                 {
@@ -38,10 +41,10 @@ module.exports = () => {
                 {
                     test: /\.(css|scss)$/,
                     use: [
-                        {
-                            loader: MINICssExtractPlugin.loader
-                        },
-                        // 'style-loader',
+                        // {
+                        //     loader: MINICssExtractPlugin.loader
+                        // },
+                        'style-loader',
                         'css-loader',
                         'sass-loader'
                     ]
@@ -74,6 +77,7 @@ module.exports = () => {
             historyApiFallback: true,
             hot: true,
             port: port,
+            open:'opera',
             headers: {
                 "Access-Control-Allow-Origin": "*",
                 "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, PATCH, OPTIONS",
