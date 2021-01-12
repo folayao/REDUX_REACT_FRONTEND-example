@@ -23,12 +23,8 @@ module.exports = () => {
         output: {
             path: path.resolve(__dirname, 'dist'),
             filename: 'assets/app.js'
-        },/*
-        node: {
-            fs: 'empty',
-            module: 'empty',
-            net: 'empty'
-        }, */
+        },
+        
         module: {
             rules: [
                 {
